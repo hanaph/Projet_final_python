@@ -27,6 +27,20 @@ st.dataframe(df.isnull().sum())
 st.header("Description des Données")
 st.write("Statistiques descriptives des colonnes numériques:")
 st.dataframe(df.describe().T)
+
+numerical_cols = ['Amount', 'Value', 'PricingStrategy', 'FraudResult']
+df_numerical = df[numerical_cols]
+# Matrice de corrélation
+correlation_matrix = df_numerical.corr()
+# Affichage dans Streamlit
+st.header("Corrélation entre les variables numériques")
+fig_corr, ax_corr = plt.subplots(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", ax=ax_corr)
+ax_corr.set_title('Carte thermique de corrélation des variables numériques')
+st.pyplot(fig_corr)
+st.markdown("**Conclusion:** Cette carte thermique indique une forte corrélation positive entre le montant (`Amount`) et la valeur (`Value`) des transactions, ce qui est attendu. On observe également une corrélation positive modérée entre le résultat de fraude (`FraudResult`) et `Amount` et `Value`, suggérant que les transactions de plus grande valeur ou montant pourraient être légèrement plus susceptibles d'être frauduleuses.")
+
+
 st.markdown("**Conclusion:** Cette carte thermique indique une forte corrélation positive entre le montant (`Amount`) et la valeur (`Value`) des transactions, ce qui est attendu. On observe également une corrélation positive modérée entre le résultat de fraude (`FraudResult`) et `Amount` et `Value`, suggérant que les transactions de plus grande valeur ou montant pourraient être légèrement plus susceptibles d'être frauduleuses.")
 
 
