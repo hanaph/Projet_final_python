@@ -41,9 +41,6 @@ st.pyplot(fig_corr)
 st.markdown("**Conclusion:** Cette carte thermique indique une forte corrélation positive entre le montant (`Amount`) et la valeur (`Value`) des transactions, ce qui est attendu. On observe également une corrélation positive modérée entre le résultat de fraude (`FraudResult`) et `Amount` et `Value`, suggérant que les transactions de plus grande valeur ou montant pourraient être légèrement plus susceptibles d'être frauduleuses.")
 
 
-st.markdown("**Conclusion:** Cette carte thermique indique une forte corrélation positive entre le montant (`Amount`) et la valeur (`Value`) des transactions, ce qui est attendu. On observe également une corrélation positive modérée entre le résultat de fraude (`FraudResult`) et `Amount` et `Value`, suggérant que les transactions de plus grande valeur ou montant pourraient être légèrement plus susceptibles d'être frauduleuses.")
-
-
 st.header("Distribution des transactions dans le temps")
 
 # Extraire les mois et année
